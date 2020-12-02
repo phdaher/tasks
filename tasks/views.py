@@ -4,6 +4,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 from .models import Task
 from .serializers import TaskSerializer
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -17,7 +18,7 @@ def getTasks(request):
     task_serializer = TaskSerializer(tasks, many=True)
     return JsonResponse(task_serializer.data, safe=False)
 
-
+@csrf_exempt
 def createTask(request):
     task_data = JSONParser().parse(request)
     task_serializer = TaskSerializer(data=task_data)
