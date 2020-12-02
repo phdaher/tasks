@@ -8,8 +8,8 @@ from .serializers import TaskSerializer
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the tasks index.")
+def hello(request):
+    return HttpResponse("Hello, world. You're at the tasks model.")
 
 
 def getTasks(request):
